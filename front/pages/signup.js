@@ -1,7 +1,12 @@
 import React from "react";
+import AppLayout from "../components/AppLayout";
 
 const Signup = () => {
-  return <div>signup</div>;
+  return (
+    <AppLayout>
+      <div>signup</div>
+    </AppLayout>
+  );
 };
 
 export default Signup;
