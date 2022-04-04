@@ -131,3 +131,53 @@ MyComponent.propTypes = {
 };
 ```
 
+
+
+#### usecallback: 컴포넌트에 props로 넘겨주는 함수들 최적화
+
+```react
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+  const onChangeId = useCallback((e) => {
+    setId(e.target.value);
+  }, []);
+  const onChangePassword = useCallback((e) => {
+    setPassword(e.target.value);
+  }, []);
+```
+
+
+
+#### style 때문에 re-render 되는 경우
+
+```react
+// 객체는 {} === {} 가 false로, 밑의 코드 새로 부를때마다 style 내부 객체 때문에 re-render 됨
+<div style={{ marginTop: "10px" }}>
+    <Button type="primary" htmlType="submit" loading={false}>
+        로그인
+    </Button>
+    <Link href="/signup">
+        <Button>회원가입</Button>
+    </Link>
+</div>
+```
+
+- 대체 하는 방법
+
+```react
+import styled from "styled-components";
+
+const ButtonWrapper = styled.div`
+  margin-top: 10px;
+`;
+
+      <ButtonWrapper>
+        <Button type="primary" htmlType="submit" loading={false}>
+          로그인
+        </Button>
+        <Link href="/signup">
+          <Button>회원가입</Button>
+        </Link>
+      </ButtonWrapper>
+```
+
