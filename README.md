@@ -188,3 +188,19 @@ const ButtonWrapper = styled.div`
 const style = useMemo(() => ({ marginTop: 10 }));
 ```
 
+
+
+#### 커스텀 훅
+
+```react
+import { useState, useCallback } from "react";
+
+export default (initialValue = null) => {
+  const [value, setValue] = useState(initialValue);
+  const handler = useCallback((e) => {
+    setValue(e.target.value);
+  }, []);
+  return [value, handler];
+};
+```
+
