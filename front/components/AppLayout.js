@@ -33,17 +33,13 @@ const AppLayout = ({ children }) => {
         </Menu.Item>
       </Menu>
       <Row gutter={8}>
-        <Col xs={24} md={6}>
+        <Col xs={24} md={8}>
           {isLoggedIn ? <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} />}
         </Col>
-        <Col xs={24} md={12}>
-          2222
-        </Col>
-        <Col xs={24} md={6}>
-          3333
+        <Col xs={24} md={16}>
+          {children}
         </Col>
       </Row>
-      {children}
     </div>
   );
 };
