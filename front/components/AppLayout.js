@@ -11,7 +11,7 @@ const SearchInput = styled(Input.Search)`
 `;
 
 // 혹은 useMemo 사용
-const style = useMemo(() => ({ marginTop: 10 }));
+// const style = useMemo(() => ({ marginTop: 10 }));
 
 const AppLayout = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,7 +25,7 @@ const AppLayout = ({ children }) => {
         <Menu.Item key="profile">
           <Link href="/profile">프로필</Link>
         </Menu.Item>
-        <Menu.Item key="signup">
+        <Menu.Item key="search">
           <SearchInput style={{ verticalAlign: "middle" }} />
         </Menu.Item>
         <Menu.Item key="signup">
@@ -34,7 +34,7 @@ const AppLayout = ({ children }) => {
       </Menu>
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          {isLoggedIn ? <UserProfile /> : <LoginForm setIsLoggedIn={setIsLoggedIn} />}
+          {isLoggedIn ? <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} />}
         </Col>
         <Col xs={24} md={12}>
           2222

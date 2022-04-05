@@ -182,3 +182,9 @@ const ButtonWrapper = styled.div`
 ```
 
 - 혹은 useMemo 에다가 style 넣어 놓고 사용
+
+```react
+// 혹은 useMemo 사용
+const style = useMemo(() => ({ marginTop: 10 }));
+```
+
