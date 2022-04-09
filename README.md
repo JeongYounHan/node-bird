@@ -204,3 +204,54 @@ export default (initialValue = null) => {
 };
 ```
 
+
+
+#### redux
+
+: 중앙저장소 만들어 놓고, 데이터를 수정도 하고 추가 삭제하면서 모든 컴포넌트에서 사용 가능
+
+- store: state & reducer
+
+- reducer: dispatch 한다고 해서 값이 다 알아서 바뀌는게 아님, 그래서 reducer에서 어떻게 바꿀지도 다 정의해줘야
+
+- 좀 귀찮을 수 있는데 이런 액션 하나하나가 다 기록이 됨, 히스토리 추적 가능, 디버깅 시 뒤로감기 앞으로 감기까지도 가능
+
+- ```react
+  {
+      ...state,
+      name: action.data,
+  }
+  // 이런식으로 처리하는 이유는, 각각 다 새로운 데이터 배정하면 그전 데이터의 주소를 참고하는게 아니라 정말 새로 배정됨, 재사용성 떨어짐
+  // 비구조화 할당은 객체 내부가 새로 생성된 게 아님
+  ```
+
+- ```react
+  // rootReducer: 이전 상태와, 액션을 통해서 다음 상태를 만들어 내는 함수
+  const rootReducer = (state = initialState, action) => {
+    switch (action.type) {
+      case 'CHANGE_NICKNAME':
+        return {
+          ...state,
+          name: action.data,
+        }
+    }
+  };
+  ```
+
+- ```react
+  // dispatch
+  
+  // action creator 선언
+  const changeNickname = (data) => {
+    return {
+      type: "CHANGE_NICKNAME",
+      data,
+    };
+  };
+  
+  // 사용
+  store.dispatch(changeNickname('mighty tac'))
+  ```
+
+- 
+
