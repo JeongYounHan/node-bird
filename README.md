@@ -239,7 +239,7 @@ export default (initialValue = null) => {
   ```
 
 - ```react
-  // dispatch
+  // dispatch 사용
   
   // action creator 선언
   const changeNickname = (data) => {
