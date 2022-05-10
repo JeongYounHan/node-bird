@@ -46,12 +46,13 @@ const dummyPost = {
       content: "얼른 사고싶지 않아요~",
     },
   ],
-},
+};
 
-const ADD_POST = 'ADD_POST';
+const ADD_POST = "ADD_POST";
+
 export const addPost = {
-  type: ADD_POST
-}
+  type: ADD_POST,
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -59,7 +60,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         mainPosts: [dummyPost, ...state.mainPosts],
-      }
+      };
     default:
       return state;
   }
